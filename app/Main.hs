@@ -16,5 +16,17 @@ noaaHost = "www.ncdc.noaa.gov"
 apiPath :: BC.ByteString
 apiPath = "/cdo-Web/api/v2/datasets"
 
+buildRequest :: BC.ByteString -> BC.ByteString -> BC.ByteString -> BC.ByteString -> Request
+buildRequest token host method path = setRequestMethod method
+                       $ setRequestHost host
+                       $ setRequestHeader "token" [myToken]
+                       $ setRequestPath path
+                       $ setRequestSecure True
+                       $ setRequestPort 443
+                       $ defaultRequest
+
+request :: Request
+request = buildRequest myToken noaaHost "GET" apiPath
+
 main :: IO ()
 main = print "hi"
