@@ -11,10 +11,10 @@ myToken :: BC.ByteString
 myToken = "<APIトークン>"
 
 noaaHost :: BC.ByteString
-noaaHost = "www.ncdc.noaa.gov"
+noaaHost = "www.ncei.noaa.gov"
 
 apiPath :: BC.ByteString
-apiPath = "/cdo-Web/api/v2/datasets"
+apiPath = "/cdo-web/api/v2/datasets"
 
 buildRequest :: BC.ByteString -> BC.ByteString -> BC.ByteString -> BC.ByteString -> Request
 buildRequest token host method path = setRequestMethod method
