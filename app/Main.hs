@@ -29,4 +29,12 @@ request :: Request
 request = buildRequest myToken noaaHost "GET" apiPath
 
 main :: IO ()
-main = print "hi"
+main = do
+  response <- httpLBS request
+  let status = getResponseStatusCode response
+  if status == 200
+  then do
+    print "saving request to file"
+    let jsonBody = getResponseBody response
+    L.writeFile "data.json" jsonBody
+  else print "request failed with error"
