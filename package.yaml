@@ -23,8 +23,12 @@ dependencies:
 - base >= 4.7 && < 5
 - bytestring
 - http-conduit
+- text
+- aeson
 
-default-extensions: OverloadedStrings
+default-extensions:
+    OverloadedStrings
+    ,DeriveGeneric
 
 library:
   source-dirs: src
