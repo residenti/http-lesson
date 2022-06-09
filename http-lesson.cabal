@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Lib
+      Noaa
   other-modules:
       Paths_http_lesson
   hs-source-dirs:
